@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website</title>
+
+    <!-- Icons -->
+    <script
+      src="https://kit.fontawesome.com/c10c2f8581.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Style -->
+    <style>
+      :root {
+        --clr-brown: #504343;
+        --clr-yellow: #fae14e;
+      }
+
+      * {
+        padding: 0;
+        margin: 0%;
+        outline: none;
+        font-family: "Montserrat";
+      }
+
+      a {
+        text-decoration: underline white;
+        color: white;
+      }
+
+      ul {
+        cursor: pointer;
+        list-style: none;
+      }
+
+      li {
+        padding-bottom: 4px;
+        transition: all 0.3s ease-in-out;
+        border-bottom: solid 2px transparent;
+      }
+
+      li:hover {
+        border-bottom: solid 2px black;
+      }
+
+      .btn {
+        padding: 0.6rem 1.2rem;
+        border: solid 1px black;
+        border-radius: 1.2rem;
+        background-color: transparent;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .btn-yellow {
+        background-color: var(--clr-yellow);
+      }
+
+      .btn-yellow:hover {
+        background-color: white;
+      }
+
+      .btn-white:hover {
+        background-color: var(--clr-yellow);
+      }
+
+      /* =============================Section-1 : Header============================= */
+
+      .offer {
+        padding: 1rem;
+        text-align: center;
+        color: white;
+        background-color: var(--clr-brown);
+      }
+
+      .offer p {
+        display: inline-block;
+      }
+
+      .navbar {
+        padding: 1rem 3rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+      }
+
+      .flex {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .logo h1 {
+        margin-left: -0.8rem;
+        font-weight: 900;
+      }
+
+      .logo h1 span {
+        font-weight: 300;
+      }
+
+      .left-items,
+      .right-items {
+        gap: 1rem;
+      }
+
+      /* =============================Section-2 : Main Section============================= */
+      #Main {
+        padding: 0 0 0 15%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .main-right img {
+        object-fit: cover;
+      }
+
+      .main-left h2 {
+        font-size: 2.3rem;
+        font-weight: 600;
+        margin: 0.5rem 0;
+      }
+
+      .main-left h3 {
+        font-weight: normal;
+        margin-bottom: 1rem;
+      }
+
+      /* =============================Section-3 : Footer============================= */
+      footer {
+        background-color: var(--clr-brown);
+        color: white;
+        padding: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .footer-left {
+        font-size: small;
+        font-weight: 300;
+        max-width: 80%;
+      }
+
+      .footer-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .footer-right button {
+        background-color: transparent;
+        color: white;
+        border: solid white 1px;
+        padding: 0.3rem 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ===================Header=================== -->
+    <section id="Header">
+      <!-- Offer -->
+      <div class="offer">
+        <p>Free Lorem ipsum dolor sit amet</p>
+        <a href="#">Get it now</a>
+      </div>
+
+      <!-- Navbar -->
+      <nav class="navbar">
+        <!-- Left container -->
+        <ul class="left-items flex">
+          <li>Products</li>
+          <li>Maintain</li>
+          <li>Explaination</li>
+          <li>Pricing</li>
+        </ul>
+
+        <!-- Mid container -->
+        <div class="logo flex">
+          <img src="../assets/logo.png" width="70" alt="logo" />
+          <h1>
+            <span>Site</span> <br />
+            Logo
+          </h1>
+        </div>
+
+        <!-- Right container -->
+        <ul class="right-items flex">
+          <li>Lorem ipsum dolor</li>
+          <li>
+            <i class="fa-solid fa-location-dot"></i>
+          </li>
+          <li>
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </li>
+          <li><button class="btn btn-white">Log In</button></li>
+          <li><button class="btn btn-yellow">Sign Up</button></li>
+        </ul>
+      </nav>
+    </section>
+
+    <!-- ===================Main=================== -->
+    <section id="Main">
+      <!-- Left container-->
+      <div class="main-left">
+        <p>Lorem, ipsum dolor</p>
+        <h2>Create must click landing pages</h2>
+        <h3>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis,
+          nisi magni ducimus excepturi quia a voluptates consequuntur vero
+          suscipit aut?
+        </h3>
+        <button class="btn btn-yellow">Click landing</button>
+      </div>
+
+      <!-- Right container-->
+      <div class="main-right">
+        <img src="../assets/laptop.jpg" width="705" alt="laptop image" />
+      </div>
+    </section>
+
+    <!-- ===================Footer=================== -->
+    <footer>
+      <!-- Footer  left -->
+      <p class="footer-left">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi earum
+        molestias itaque ullam dicta nostrum laborum incidunt sit ipsum sunt,
+        cum corrupti quibusdam, expedita autem atque ipsam eligendi repellat
+        fugiat.
+        <a href="#">Click here</a>
+      </p>
+
+      <!-- Footer  right -->
+      <div class="footer-right">
+        <button>Cookie setting</button>
+        <i class="fa-solid fa-xmark"></i>
+      </div>
+    </footer>
+  </body>
+</html>
