@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+
+    <!-- Style -->
+    <style>
+      .main {
+        margin: 0 auto;
+        width: 700px;
+        height: 600px;
+        display: grid;
+        gap: 1rem;
+        padding: 1rem;
+        border: solid 2px #172739;
+        grid-template-areas:
+          "one two four"
+          "one two four"
+          "one two five"
+          "three three five"
+          "three three six"
+          "three three six";
+      }
+
+      .main div {
+        background-color: #172739;
+      }
+
+      .main div:nth-child(1) {
+        grid-area: one;
+      }
+      .main div:nth-child(2) {
+        grid-area: two;
+      }
+      .main div:nth-child(3) {
+        grid-area: three;
+      }
+      .main div:nth-child(4) {
+        grid-area: four;
+      }
+      .main div:nth-child(5) {
+        grid-area: five;
+      }
+      .main div:nth-child(6) {
+        grid-area: six;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </body>
+</html>
