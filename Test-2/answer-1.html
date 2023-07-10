@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test-2 Answer-2</title>
+
+    <!-- CSS -->
+    <style>
+      body {
+        background-color: #444;
+      }
+
+      .main {
+        margin-top: 1%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .box {
+        width: 300px;
+        height: 300px;
+        background-color: red;
+        border-radius: 1rem;
+        box-shadow: 1px 5px 18px #333;
+        transition: all 0.3s ease-in-out;
+      }
+
+      button {
+        border: solid 2px #ffffff;
+        border-radius: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 400;
+        padding: 0.2rem 1rem;
+        box-shadow: 1px 5px 18px #333;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      button:active {
+        transform: scale(0.9);
+      }
+
+      .change {
+        width: 600px;
+        height: 600px;
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="box"></div>
+      <button type="button">Click Me</button>
+    </div>
+
+    <script>
+      let btn = document.querySelector("button");
+      let box = document.querySelector(".box");
+
+      function handleClick() {
+        box.classList.toggle("change", !box.classList.contains("change"));
+      }
+
+      btn.addEventListener("click", handleClick);
+    </script>
+  </body>
+</html>
