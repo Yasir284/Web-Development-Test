@@ -1,0 +1,118 @@
+<!-- 2. Create a form with basic validation (name, email, phone number, password, age, gender, date, color picker) -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="name"> Name: </label>
+      <input id="text" type="text" name="name" required />
+      <br />
+
+      <label for="email"> Email: </label>
+      <input id="email" type="email" name="email" required />
+      <br />
+
+      <label for="phoneNumber"> Phone number: </label>
+      <input id="phone" type="tel" name="phoneNumber" required />
+      <br />
+
+      <label for="password"> Password: </label>
+      <input id="password" type="password" name="password" required />
+      <br />
+
+      <label for="age"> Age: </label>
+      <input id="age" type="number" name="age" maxlength="3" required />
+      <br />
+
+      <label for="gender"> Gender: </label>
+      <select id="gender" name="gender" required>
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <br />
+
+      <label for="date"> Date: </label>
+      <input id="date" type="date" name="date" required />
+      <br />
+
+      <label for="color"> Favorite color: </label>
+      <input id="color" type="color" name="color" required />
+      <br />
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent form submission
+
+          // Get form input values
+          var name = document.getElementById("name").value.trim();
+          var email = document.getElementById("email").value.trim();
+          var phone = document.getElementById("phone").value.trim();
+          var password = document.getElementById("password").value.trim();
+          var age = document.getElementById("age").value.trim();
+          var gender = document.getElementById("gender").value;
+          var date = document.getElementById("date").value.trim();
+          var color = document.getElementById("color").value;
+
+          // Validate each input field
+          var isValid = true;
+
+          if (!name) {
+            isValid = false;
+            alert("Please enter your name.");
+          }
+
+          if (!email) {
+            isValid = false;
+            alert("Please enter a valid email address.");
+          }
+
+          if (!phone) {
+            isValid = false;
+            alert("Please enter a valid phone number.");
+          }
+
+          if (!password) {
+            isValid = false;
+            alert("Please enter a password.");
+          }
+
+          if (!age || age < 18) {
+            isValid = false;
+            alert("Please enter a valid age (must be 18 or older).");
+          }
+
+          if (!gender) {
+            isValid = false;
+            alert("Please select your gender.");
+          }
+
+          if (!date) {
+            isValid = false;
+            alert("Please select a valid date.");
+          }
+
+          if (!color) {
+            isValid = false;
+            alert("Please select a color.");
+          }
+
+          // If all fields are valid, proceed with form submission
+          if (isValid) {
+            alert("Form submitted successfully!");
+            document.getElementById("myForm").reset();
+          }
+        });
+    </script>
+  </body>
+</html>
