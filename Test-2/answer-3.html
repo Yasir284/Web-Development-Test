@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test-2 Answer-3</title>
+
+    <!-- CSS -->
+    <style>
+      body {
+        padding: 1rem;
+      }
+
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .btn button {
+        background-color: #333;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        border-radius: 0.4rem;
+      }
+
+      .grid {
+        list-style: none;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        box-shadow: 1px 2px 10px 5px hsl(200, 20%, 95%);
+        border-radius: 0.5rem;
+        padding: 1rem;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      .header {
+        margin-bottom: 1rem;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        align-items: center;
+      }
+
+      .title {
+        width: 100%;
+        font-weight: bold;
+        text-transform: capitalize;
+      }
+
+      .card-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .skeleton {
+        animation: skeleton-animation 1s linear infinite alternate;
+      }
+
+      .skeleton-text {
+        width: 100%;
+        background-color: rgba(128, 128, 128, 0.4);
+        height: 0.5rem;
+        margin-bottom: 0.3rem;
+      }
+
+      .skeleton-text:last-child {
+        width: 80%;
+      }
+
+      @keyframes skeleton-animation {
+        0% {
+          background-color: hsl(200, 20%, 70%);
+        }
+        100% {
+          /* background-color: rgba(128, 128, 128, 0.2); */
+          background-color: hsl(200, 20%, 95%);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="btn">
+        <button>Show Posts</button>
+      </div>
+
+      <div class="grid"></div>
+
+      <!-- Skeleton-loader -->
+      <template id="card-template">
+        <div class="card">
+          <div class="header">
+            <div class="card-img skeleton"></div>
+            <img
+              class="card-img skeleton hide"
+              src="https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=975&q=80"
+              loading="lazy"
+            />
+            <div class="title">
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text"></div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+          </div>
+        </div>
+      </template>
+    </div>
+
+    <script>
+      let grid = document.querySelector(".grid");
+      let cardTemplate = document.querySelector("#card-template");
+      let btn = document.querySelector("button");
+
+      document.addEventListener("click", showPosts);
+
+      async function showPosts() {
+        for (let i = 0; i < 12; i++) {
+          grid.append(cardTemplate.content.cloneNode(true));
+        }
+
+        // Adding setTimeout to show skeleton loader for some time
+        await setTimeout(() => fetchData(), 2000);
+      }
+
+      //   Function To fetch data
+      function fetchData() {
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+          method: "get",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            grid.innerHTML = "";
+            data.forEach((e) => {
+              let div = cardTemplate.content.cloneNode(true);
+              div.querySelector(".card-img").remove();
+              div.querySelector("img").classList.remove("hide");
+              div.querySelector(".title").textContent = e.title;
+              div.querySelector(".card-body").textContent = e.body;
+              grid.append(div);
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    </script>
+  </body>
+</html>
