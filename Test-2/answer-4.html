@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test-2 answer-4</title>
+
+    <!-- Font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <style>
+      * {
+        padding: 0%;
+        margin: 0%;
+        outline: none;
+        border: none;
+        color: #fff;
+      }
+
+      body {
+        font-family: "Gemunu Libre";
+        background: url("./assets/bg.jpeg");
+        background-repeat: no-repeat;
+        background-position: top;
+        background-size: cover;
+        height: 100vh;
+        overflow: hidden;
+      }
+
+      section {
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      section h1 {
+        font-size: 3rem;
+      }
+
+      .hamburger {
+        cursor: pointer;
+        width: 3rem;
+        height: 3rem;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.5rem;
+        background-color: transparent;
+        box-shadow: 1px 2px 10px 2px rgba(255, 255, 255, 0.2);
+        border: 2px solid #fff;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 10;
+      }
+
+      .ham {
+        position: relative;
+        width: 1.5rem;
+        height: 2px;
+        border-radius: 5px;
+        background: #fff;
+      }
+
+      .ham::after,
+      .ham::before {
+        content: "";
+        width: 100%;
+        height: 2.5px;
+        border-radius: 5px;
+        background-color: #fff;
+        position: absolute;
+        transition: all ease-in-out 0.3s;
+      }
+
+      .ham::before {
+        top: 0.4rem;
+      }
+
+      .ham::after {
+        bottom: 0.4rem;
+      }
+
+      .close {
+        background-color: transparent;
+      }
+
+      .close::before {
+        transform: translate(0rem, -0.45rem) rotate(45deg);
+      }
+      .close::after {
+        transform: translate(0rem, 0.45rem) rotate(-45deg);
+      }
+
+      .list {
+        font-size: 1.4rem;
+        list-style: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        inset: 0 0 0 20%;
+        padding: min(30vh, 10rem) 0;
+        background-color: rgba(255, 255, 255, 0.258);
+        transform: translateX(100%);
+        backdrop-filter: blur(0.3rem);
+        transition: all ease-in-out 0.5s;
+      }
+
+      .showList {
+        transform: translateX(0);
+      }
+
+      .list-items {
+        cursor: pointer;
+        padding: 1.2rem 4rem;
+        transition: all ease-in-out 0.2s;
+      }
+
+      .list-items:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      @media (min-width: 900px) {
+        .hamburger {
+          display: none;
+        }
+
+        .list {
+          position: static;
+          display: flex;
+          flex-direction: row;
+          justify-content: end;
+          transform: translateX(0);
+          padding: 0%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="hamburger">
+        <div class="ham"></div>
+      </div>
+      <ul class="list">
+        <li class="list-items">Home</li>
+        <li class="list-items">Contact</li>
+        <li class="list-items">Blogs</li>
+        <li class="list-items">About</li>
+        <li class="list-items">Projects</li>
+      </ul>
+    </nav>
+
+    <section>
+      <h1>Hello World!</h1>
+    </section>
+
+    <script>
+      let ham = document.querySelector(".ham");
+      let hamburger = document.querySelector(".hamburger");
+      let list = document.querySelector(".list");
+
+      hamburger.addEventListener("click", handleClick);
+
+      function handleClick() {
+        ham.classList.toggle("close", !ham.classList.contains("close"));
+        list.classList.toggle("showList", !list.classList.contains("showList"));
+      }
+    </script>
+  </body>
+</html>
